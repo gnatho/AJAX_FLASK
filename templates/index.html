@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
+    <link type='text/css' href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript">$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+
+<h1>jQuery Example</h1>
+<p><input type=text size=10 name=a> +
+    <input type=text size=10 name=b> =
+    <span id=result>?</span>
+<p><a href=# id=calculate>calculate server side</a>
+<p><a href=# id=pokaz>poka poka</a>
+    <span id=wynik></span>
+<p><a href=# id=new_page_button>nowy strone</a>
+<input type=text size=39 name=city>
+<p><a href=/list >poka liste</a>
+</body>
+</html>
