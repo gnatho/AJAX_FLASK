@@ -1,0 +1,18 @@
+{
+  "storyTitle": "Beaver and Hedgehog",
+  "storyAuthor": "Smith",
+  "storyId": "u1s1",
+  "wordCount": 25,
+  "storyContent": [
+    {
+      "pageImg": "1.jpg",
+      "pageNumber": 13,
+      "sentences": ["33", "hello", "go on", "bye"]
+    },
+    {
+      "pageImg": "2.jpg",
+      "pageNumber": 14,
+      "sentences": ["pele", "srele", "trele", "morele"]
+    }
+  ]
+}

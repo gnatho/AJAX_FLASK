@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}Story: {{ d['storyTitle'] }}{% endblock %}
+{% block head %}
+        <script src="{{ url_for('static', filename='js/sound.js') }}"></script>
+{% endblock %}
+{% block body %}
+<h1 class="story-title">{{ d['storyTitle'] }}</h1>
+<div id="story-block">
+
+    {% for page in d['storyContent'] %}
+        <img src="{{ page['pageImg'] }}">
+    {% endfor %}
+
+    <span id="1">sran</span>
+    <span id="2">sran</span>
+    <span id="3">sran</span>
+
+</div>
+
+<a href="/">Go Back</a>
+
+<audio id="a1" src="static/audio/stories/{{ d['storyId'] }}/1.mp3" preload="auto"></audio>
+<audio id="a2" src="static/audio/stories/{{ d['storyId'] }}/2.mp3" preload="auto"></audio>
+<audio id="a3" src="static/audio/stories/{{ d['storyId'] }}/3.mp3" preload="auto"></audio>
+
+
+{% endblock %}

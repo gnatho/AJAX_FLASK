@@ -59,3 +59,12 @@ img.cover {
 img.story-img {
 	max-width: 100%;
 }
+
+
+h1.story-title {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+	border-bottom: 5px solid black;
+}
