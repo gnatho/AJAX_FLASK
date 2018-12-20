@@ -20,9 +20,14 @@ def get_data():
 
 @app.route('/_balony')
 def balony():
+
+
+
         try:
 
             city = request.args.get('city')
+            if city == '':
+                return jsonify(result="error")
 
 
             with sql.connect("database.db") as con:

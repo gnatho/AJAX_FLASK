@@ -1,14 +1,18 @@
 <!doctype html>
 <html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link type='text/css' href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+
    <body>
-      <table border = 1>
-         <thead>
-            <td>CITY</td>
-         </thead>
+      <table id="customers">
+         <tr>
+            <th>CITY</th>
+         </tr>
          {% for row in rows %}
-            <tr>
-               <td> {{ row["city"]}}</td>
-            </tr>
+            <tr><td> {{ row["city"]}}</td></tr>
          {% endfor %}
       </table>
       <a href = "/">Go back to home page</a>
