@@ -10,7 +10,5 @@
 			$('#'+event.target.id).css('color', 'black');
 		}
 
-
-
 });
 });
