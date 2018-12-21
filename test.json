@@ -7,12 +7,17 @@
     {
       "pageImg": "1.jpg",
       "pageNumber": 13,
-      "sentences": ["33", "hello", "go on", "bye"]
+      "sentences": ["33", "hello", "go on"]
     },
     {
       "pageImg": "2.jpg",
       "pageNumber": 14,
       "sentences": ["pele", "srele", "trele", "morele"]
+    },
+    {
+      "pageImg": "3.jpg",
+      "pageNumber": 15,
+      "sentences": ["EEREr", "wqetrwee", "vcbcvbc", "hjjfgf"]
     }
   ]
 }

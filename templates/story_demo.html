@@ -6,21 +6,24 @@
 {% block body %}
 <h1 class="story-title">{{ d['storyTitle'] }}</h1>
 <div id="story-block">
-
-    {% for page in d['storyContent'] %}
-        <img src="{{ page['pageImg'] }}">
+    {% set audio_id = [0] %}
+    {% for page in d.storyContent %}
+        {% for sentence in page.sentences %}
+            {% if audio_id.append(audio_id.pop() + 1) %}{% endif %}
+            <span id="{{ audio_id[0] }}">{{ sentence }}</span>
+        {% endfor %}
     {% endfor %}
 
-    <span id="1">sran</span>
-    <span id="2">sran</span>
-    <span id="3">sran</span>
-
+   {% set number_of_audio_id = audio_id[0] %}
 </div>
 
 <a href="/">Go Back</a>
 
-<audio id="a1" src="static/audio/stories/{{ d['storyId'] }}/1.mp3" preload="auto"></audio>
-<audio id="a2" src="static/audio/stories/{{ d['storyId'] }}/2.mp3" preload="auto"></audio>
-<audio id="a3" src="static/audio/stories/{{ d['storyId'] }}/3.mp3" preload="auto"></audio>
+{% for n in range(number_of_audio_id) %}
+    <audio id="a{{ n+1 }}" src="static/audio/stories/{{ d['storyId'] }}/{{ n+1 }}.mp3" preload="auto"></audio>
+{% endfor %}
+
+
+
 
 {% endblock %}

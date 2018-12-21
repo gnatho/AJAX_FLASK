@@ -6,6 +6,10 @@ import json
 app = Flask(__name__)
 
 
+@app.route('/story/<string:book_id>/<int:story_id>')   #int has been used as a filter that only integer will be passed in the url otherwise it will give a 404 error
+def find_question(book_id, story_id):
+    return ('you asked for question {0} {1}'.format(book_id, story_id))
+
 @app.route('/_add_numbers')
 def add_numbers():
     a = request.args.get('a', 0, type=int)
