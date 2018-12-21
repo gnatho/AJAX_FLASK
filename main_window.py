@@ -61,16 +61,11 @@ def list():
 
 @app.route('/s')
 def s():
-    navigation = []
     with open('test.json', 'r') as f:
         d = json.load(f)
         f.close()
 
-    for page in d['storyContent']:
-        navigation.append(page['sentences'])
-
-    title = 'Menel i spolka'
-    return render_template("story_demo.html", navigation=navigation, title=title, d=d)
+    return render_template("story_demo.html", d=d)
 
 @app.route('/')
 def index():
