@@ -68,3 +68,7 @@ h1.story-title {
   user-select: none;          /* Likely future */
 	border-bottom: 5px solid black;
 }
+
+img.story_page {
+    max-width: 100%;
+}

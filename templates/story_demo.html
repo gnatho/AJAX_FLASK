@@ -10,7 +10,7 @@
     {% for page in d.storyContent %}
         {% for sentence in page.sentences %}
             {% if audio_id.append(audio_id.pop() + 1) %}{% endif %}
-            <span id="{{ audio_id[0] }}">{{ sentence }}</span>
+            <span id="{{ audio_id[0] }}">{{ sentence|safe }}</span>
         {% endfor %}
     {% endfor %}
 

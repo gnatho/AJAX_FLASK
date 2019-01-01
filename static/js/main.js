@@ -1,5 +1,6 @@
 $(function() {
 
+
     $('a#calculate').bind('click', function() {
       $.getJSON($SCRIPT_ROOT + '/_add_numbers', {
         a: $('input[name="a"]').val(),
@@ -25,6 +26,24 @@ $(function() {
       });
       return false;
     });
+
+    $("#testImg").swipe({
+    swipe:function(event, direction, distance, duration, fingerCount) {
+
+    if (direction == "left") {
+        alert(typeof(direction));
+        $('#testImg').remove();
+
+    }
+
+
+
+
+
+
+
+  }
+});
 
 
 });

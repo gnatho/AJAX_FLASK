@@ -71,6 +71,12 @@ def s():
 
     return render_template("story_demo.html", d=d)
 
+
+@app.route('/t')
+def t():
+
+    return render_template("t.html")
+
 @app.route('/')
 def index():
     return render_template('index.html')
