@@ -26,15 +26,17 @@
 		    padding: 0px 0;
 		}
 		.demo{
-			<!--width: 100%;-->
+			max-width: 100%;
+			max-height: 100%;
 		}
 		img {
 		    width: 100%;
 		}
 
     </style>
-    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/lightslider.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/lightslider.js') }}"></script>
+        <!--<script src="{{ url_for('static', filename='js/sound.js') }}"></script>-->
     <script>
     	 $(document).ready(function() {
 
@@ -59,7 +61,8 @@
 
 
             $( "#image-gallery" ).dblclick(function() {
-                console.log(slider.getCurrentSlideCount());
+                var sracz = '#a'+slider.getCurrentSlideCount();
+                $(sracz)[0].play();
             });
 
 
@@ -76,7 +79,11 @@
                 <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
 
                     {% for n in range(numpages) %}
-                      <li data-thumb="/static/content/{{ bookId }}/img/{{ n+1 }}.jpg"><img src="/static/content/{{ bookId }}/img/{{ n+1 }}.jpg" /></li>
+                      <li data-thumb="/static/content/{{ bookId }}/img/{{ n+1 }}.jpg">
+                          <img src="/static/content/{{ bookId }}/img/{{ n+1 }}.jpg" />
+                          <audio id="a{{ n+1 }}" src="/static/content/{{ bookId }}/audio/{{ n+1 }}.mp3" preload="auto"></audio>
+                      </li>
+
                     {% endfor %}
 
                 </ul>
