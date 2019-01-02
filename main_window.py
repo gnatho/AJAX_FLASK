@@ -69,8 +69,8 @@ def s():
     with open('test.json', 'r') as f:
         d = json.load(f)
         f.close()
-
-    return render_template("story_demo.html", d=d)
+        l = [1, 2, 3, 4, 5, 6, 7, 10]
+    return render_template("story_demo.html", d=d, seq=l)
 
 @app.route('/l/<lvl>')
 def l(lvl):
@@ -95,6 +95,19 @@ def l(lvl):
 def t(storyId):
 
     return render_template("t.html", storyId=storyId)
+
+@app.route('/slider/<bookid>')
+def slider(bookid):
+    con = sql.connect("books.db")
+    con.row_factory = sql.Row
+    cur = con.cursor()
+    query_string = "SELECT title, numpages  FROM books WHERE bookid = ?"
+    cur.execute(query_string, (bookid,))
+
+    row = cur.fetchone()
+    con.close()
+
+    return render_template("slider.html", bookId=bookid, title=row[0], numpages=int(row[1]))
 
 @app.route('/')
 def index():

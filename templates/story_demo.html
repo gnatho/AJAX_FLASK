@@ -23,7 +23,9 @@
     <audio id="a{{ n+1 }}" src="static/audio/stories/{{ d['storyId'] }}/{{ n+1 }}.mp3" preload="auto"></audio>
 {% endfor %}
 
-
+{% for item in seq -%}
+    {{ item }}
+{%- endfor %}
 
 
 {% endblock %}
