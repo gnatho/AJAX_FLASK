@@ -9,12 +9,13 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script src="{{ url_for('static', filename='js/swiper.js') }}"></script>
       <script src="{{ url_for('static', filename='js/jquery.touchSwipe.min.js') }}"></script>
+      <script>var id = '{{ storyId }}';</script>
       <script type="text/javascript">$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
       <title>STORY TEST</title>
 
   </head>
   <body>
-  <div id="pageHolder"><img src="/static/54/img/1.jpg" class="story-img" id="testImg"></div>
+  <div id="pageHolder"><img src="/static/content/{{ storyId }}/img/1.jpg" class="story-img" id="testImg"></div>
 
   </body>
 </html>

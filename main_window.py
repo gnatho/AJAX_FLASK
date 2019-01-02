@@ -60,6 +60,7 @@ def list():
     cur.execute("select * from students")
 
     rows = cur.fetchall();
+    con.close()
 
     return render_template("list.html", rows=rows)
 
@@ -71,11 +72,29 @@ def s():
 
     return render_template("story_demo.html", d=d)
 
+@app.route('/l/<lvl>')
+def l(lvl):
+    con = sql.connect("books.db")
+    con.row_factory = sql.Row
 
-@app.route('/t')
-def t():
+    cur = con.cursor()
+    query_string = "SELECT bookId FROM books WHERE level = ?"
+    cur.execute(query_string, (lvl,))
 
-    return render_template("t.html")
+    rows = cur.fetchall()
+    con.close()
+    books = []
+    for row in rows:
+        books.append(row[0])
+
+    return render_template("l.html", books=books, lvl=lvl)
+
+
+
+@app.route('/t/<storyId>')
+def t(storyId):
+
+    return render_template("t.html", storyId=storyId)
 
 @app.route('/')
 def index():
