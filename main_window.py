@@ -78,7 +78,7 @@ def l(lvl):
     con.row_factory = sql.Row
 
     cur = con.cursor()
-    query_string = "SELECT bookId FROM books WHERE level = ?"
+    query_string = "SELECT bookId FROM books WHERE level = ? AND mp3path NOT NULL"
     cur.execute(query_string, (lvl,))
 
     rows = cur.fetchall()

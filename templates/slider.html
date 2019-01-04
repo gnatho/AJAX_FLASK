@@ -61,8 +61,18 @@
 
 
             $( "#image-gallery" ).dblclick(function() {
-                var sracz = '#a'+slider.getCurrentSlideCount();
-                $(sracz)[0].play();
+
+                var curCount = slider.getCurrentSlideCount();
+
+                if (curCount == 1) {
+
+                   $("#a_title")[0].play();
+
+
+                } else {
+                    var sracz = '#a'+curCount;
+                    $(sracz)[0].play();
+                }
             });
 
 
@@ -72,6 +82,7 @@
 </head>
 <body>
 
+<audio id="a_title" src="/static/content/{{ bookId }}/audio/title.mp3" preload="auto"></audio>
 
 	<div class="demo">
         <div class="item">
@@ -81,7 +92,9 @@
                     {% for n in range(numpages) %}
                       <li data-thumb="/static/content/{{ bookId }}/img/{{ n+1 }}.jpg">
                           <img src="/static/content/{{ bookId }}/img/{{ n+1 }}.jpg" />
-                          <audio id="a{{ n+1 }}" src="/static/content/{{ bookId }}/audio/{{ n+1 }}.mp3" preload="auto"></audio>
+                          <!--<audio id="a{{ n+1 }}" src="/static/content/{{ bookId }}/audio/{{ n+1 }}.mp3" preload="auto"></audio>-->
+                          <audio id="a{{ n+1 }}" src="http://107.174.242.29/content/{{ bookId }}/audio/{{ n+1 }}.mp3" preload="auto"></audio>
+
                       </li>
 
                     {% endfor %}
