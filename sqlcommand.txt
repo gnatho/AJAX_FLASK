@@ -1,0 +1,2 @@
+mysql -u gnatho -h gnatho.mysql.pythonanywhere-services.com 'gnatho$content'  < db.sql
+mysqldump.exe --defaults-file="c:\users\zitron\appdata\local\temp\tmp0pagck.cnf"  --user=gnatho --host=127.0.0.1 --protocol=tcp --port=3306 --default-character-set=utf8 --skip-triggers "content"

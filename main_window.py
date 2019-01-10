@@ -1,6 +1,15 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 import sqlite3 as sql
+import mysql.connector
 import json
+import os
+
+isWin = False
+db_host_address = 'gnatho.mysql.pythonanywhere-services.com'
+
+if os.getenv('OS') == 'Windows_NT':
+    isWin = True
+    db_host_address = '127.0.0.1'
 
 
 app = Flask(__name__)
@@ -74,12 +83,23 @@ def s():
 
 @app.route('/l/<lvl>')
 def l(lvl):
-    con = sql.connect("books.db")
+
+    con = mysql.connector.connect(user='gnatho', password='content69',
+                                host='127.0.0.1', database='content',
+                                auth_plugin='mysql_native_password')
+
+    # con = sql.connect("books.db")
+
     con.row_factory = sql.Row
 
     cur = con.cursor()
-    query_string = "SELECT bookId FROM books WHERE level = ? AND mp3path NOT NULL"
+
+    query_string = '''SELECT bookId FROM books WHERE level = %s AND mp3path IS NOT NULL'''
     cur.execute(query_string, (lvl,))
+
+    # stare ustawienia
+    # query_string = "SELECT bookId FROM books WHERE level = ? AND mp3path NOT NULL"
+    # cur.execute(query_string, (lvl,))
 
     rows = cur.fetchall()
     con.close()
@@ -107,7 +127,7 @@ def slider(bookid):
     row = cur.fetchone()
     con.close()
 
-    return render_template("slider.html", bookId=bookid, title=row[0], numpages=int(row[1]))
+    return render_template("slider.html", bookId=bookid, title=row[0], numpages=int(row[1]), isWin=isWin)
 
 @app.route('/')
 def index():
