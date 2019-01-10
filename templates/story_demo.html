@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
 {% block title %}Story: {{ d['storyTitle'] }}{% endblock %}
 {% block head %}
-        <script src="{{ url_for('static', filename='js/sound.js') }}"></script>
+<script src="{{ url_for('static', filename='js/sound.js') }}"></script>
+
 {% endblock %}
 {% block body %}
 <h1 class="story-title">{{ d['storyTitle'] }}</h1>
@@ -28,6 +29,8 @@
 {%- endfor %}
 
 
-<audio id="zoetest" src="https://content.raz-kids.com/audio/2581/raz_aesopsfables_lp37_p15_text.mp3" preload="auto" autoplay></audio>
+<!--<audio id="zoetest" src="https://content.raz-kids.com/audio/2581/raz_aesopsfables_lp37_p15_text.mp3" preload="auto" autoplay></audio>-->
 
+
+<div id="audiotester"><b>CLICK ME</b></div>
 {% endblock %}

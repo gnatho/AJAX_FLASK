@@ -27,14 +27,14 @@ $(function() {
       return false;
     });
 
-    $("#testImg").swipe({
-    swipe:function(event, direction, distance, duration, fingerCount) {
-
-    if (direction == "left") {
-        alert(typeof(direction));
-        $('#testImg').remove();
-
-    }
+//    $("#testImg").swipe({
+//    swipe:function(event, direction, distance, duration, fingerCount) {
+//
+//    if (direction == "left") {
+//        alert(typeof(direction));
+//        $('#testImg').remove();
+//
+//    }
 
 
 

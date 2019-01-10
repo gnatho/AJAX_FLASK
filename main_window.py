@@ -6,10 +6,12 @@ import os
 
 isWin = False
 db_host_address = 'gnatho.mysql.pythonanywhere-services.com'
+db_name = 'gnatho$content'
 
 if os.getenv('OS') == 'Windows_NT':
     isWin = True
     db_host_address = '127.0.0.1'
+    db_name = 'content'
 
 
 app = Flask(__name__)
@@ -85,7 +87,7 @@ def s():
 def l(lvl):
 
     con = mysql.connector.connect(user='gnatho', password='content69',
-                                host=db_host_address, database='gnatho$content',
+                                host=db_host_address, database=db_name,
                                 auth_plugin='mysql_native_password')
 
     # con = sql.connect("books.db")
@@ -118,10 +120,12 @@ def t(storyId):
 
 @app.route('/slider/<bookid>')
 def slider(bookid):
-    con = sql.connect("books.db")
+    con = mysql.connector.connect(user='gnatho', password='content69',
+                                  host=db_host_address, database=db_name,
+                                  auth_plugin='mysql_native_password')
     con.row_factory = sql.Row
     cur = con.cursor()
-    query_string = "SELECT title, numpages  FROM books WHERE bookid = ?"
+    query_string = "SELECT title, numpages  FROM books WHERE bookid = %s"
     cur.execute(query_string, (bookid,))
 
     row = cur.fetchone()
