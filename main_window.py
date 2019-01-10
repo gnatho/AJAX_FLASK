@@ -85,7 +85,7 @@ def s():
 def l(lvl):
 
     con = mysql.connector.connect(user='gnatho', password='content69',
-                                host='127.0.0.1', database='content',
+                                host=db_host_address, database='content',
                                 auth_plugin='mysql_native_password')
 
     # con = sql.connect("books.db")
