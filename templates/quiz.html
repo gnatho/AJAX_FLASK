@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}Quiz: {{ title }}{% endblock %}
+{% block head %}
+<link type='text/css' href="{{ url_for('static', filename='css/quiz.css') }}" rel="stylesheet">
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="quiz_controls">ELOES</div>
+<div class="container">
+	<div class="ans" id="choice-1">bla bla bla</div>
+	<div class="ans" id="choice-2">2</div>
+	<div class="ans" id="choice-3">3</div>
+	<div class="ans" id="choice-4">4</div>
+</div>
+{% endblock %}

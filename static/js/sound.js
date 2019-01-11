@@ -1,7 +1,7 @@
  $(document).ready(function () {
 
 
- $("span").click(function(event) {
+ $("span").dblclick(function(event) {
 
     var sracz = '#a'+event.target.id;
 

@@ -133,6 +133,22 @@ def slider(bookid):
 
     return render_template("slider.html", bookId=bookid, title=row[0], numpages=int(row[1]), isWin=isWin)
 
+@app.route('/quiz/<bookid>')
+def quiz(bookid):
+    con = mysql.connector.connect(user='gnatho', password='content69',
+                                  host=db_host_address, database=db_name,
+                                  auth_plugin='mysql_native_password')
+    con.row_factory = sql.Row
+    cur = con.cursor()
+    query_string = "SELECT mp3files FROM books WHERE bookid = %s"
+    cur.execute(query_string, (bookid,))
+
+    row = cur.fetchone()[0]
+    row = row.split(',')
+    row = [int(i) for i in row]
+    con.close()
+    return render_template("quiz.html", title=bookid, book=row)
+
 @app.route('/')
 def index():
     return render_template('index.html')

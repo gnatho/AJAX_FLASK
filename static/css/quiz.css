@@ -1,0 +1,26 @@
+html,body {
+	height:100%;
+	margin: 0;
+	padding: 0;
+}
+
+.quiz_controls {
+	height: 30px;
+}
+
+.container {
+  display: flex; /* or inline-flex */
+  flex-direction: column;
+  height: calc(100% - 30px);
+
+}
+
+.ans {
+    display: flex;
+    background: #eeeeff;
+    margin: auto;
+    width: 80%;
+    min-height: 12%;
+    align-items: center;
+    justify-content: center;
+}

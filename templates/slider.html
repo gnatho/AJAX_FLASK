@@ -82,7 +82,8 @@
 </head>
 <body>
 {% set content_path = 'http://107.174.242.29/' %}
-{% if isWin %}{% set content_path = '/static/' %}{% endif %}
+{% if isWin %}{% set content_path = 'http://107.174.242.29/' %}{% endif %}
+
 
 <audio id="a_title" src="/static/content/{{ bookId }}/audio/title.mp3" preload="auto"></audio>
 
